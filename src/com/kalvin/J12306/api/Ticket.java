@@ -33,6 +33,7 @@ public class Ticket {
         this.toStation = toStation;
     }
 
+    //https://kyfw.12306.cn/otn/leftTicket/queryA?leftTicketDTO.train_date=2019-12-28&leftTicketDTO.from_station=BJP&leftTicketDTO.to_station=NFF&purpose_codes=ADULT
     public HttpResponse query() {
         this.session = new Session();
         this.session.setCookie(this.tempCookie);
@@ -41,8 +42,9 @@ public class Ticket {
                 .replace("{0}", trainDate)
                 .replace("{1}", this.fromStation)
                 .replace("{2}", this.toStation));
-        UrlsEnum.QUERY_TICKET.setUrlConfig(urlConfig);
 
+        UrlsEnum.QUERY_TICKET.setUrlConfig(urlConfig);
+        log.info("当前请求的路径",UrlsEnum.QUERY_TICKET);
         return this.session.httpClient.send(UrlsEnum.QUERY_TICKET);
     }
 }

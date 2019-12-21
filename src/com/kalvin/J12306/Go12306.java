@@ -71,6 +71,7 @@ public class Go12306 {
         if (fromStationCode == null) {
             throw new J12306Exception("无法找到始发站站点【" + fromStation + "】，请确保始发站点名正确。");
         }
+
         final String toStationCode = StationUtil.getStationCode(toStation);
         if (toStationCode == null) {
             throw new J12306Exception("无法找到到达站站点【" + fromStation + "】，请确保到达站点名正确。");
@@ -92,6 +93,7 @@ public class Go12306 {
             log.info("重次登录一次");
             userInfo = login.send();
         }
+
         // 用户信息保存到缓存中
         this.ticketCache.put(Constants.USER_INFO_KEY, userInfo);
 
@@ -111,7 +113,7 @@ public class Go12306 {
             }
 
             String body = httpResponse.body();
-//            log.info("query tickets status = {}，body={}", httpResponse.getStatus(), body);
+            log.info("query tickets status = {}，body={}", httpResponse.getStatus(), body);
 
             if (httpResponse.getStatus() == Constants.REQ_SUCCESS_STATUS) {
                 List<TicketInfoDTO> ticketInfoDTOS;

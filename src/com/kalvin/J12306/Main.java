@@ -11,7 +11,7 @@ public class Main {
 
     public static void selectTicket1() {
         Go12306.newInstance()
-                .initUser("182xxxx", "123456")    // 用户名/密码
+                .initUser("lixin__888", "188282hcp")    // 用户名/密码
                 .initBookTicketInfo("2019-10-13", // 乘车日期
                         "广州",   // 始发站
                         "怀集",   // 到达站
@@ -22,11 +22,11 @@ public class Main {
 
     public static void selectTicket2() {
         Go12306.newInstance()
-                .initUser("182xxxx", "123456")    // 用户名/密码
-                .initBookTicketInfo("2019-10-14", // 乘车日期
-                        "广州",   // 始发站
-                        "怀集",   // 到达站
-                        "D1872",    // 列车编号（D2834）。多个使用英文半角逗号分隔。目前暂时只能人工看列车编号啦
+                .initUser("lixin__888", "188282hcp")      // 用户名/密码
+                .initBookTicketInfo("2019-12-28", // 乘车日期
+                        "北京西",   // 始发站
+                        "南阳",   // 到达站
+                        "G4067",    // 列车编号（D2834）。多个使用英文半角逗号分隔。目前暂时只能人工看列车编号啦
                         "M,O,N")    // 列车座席。M,O,N分别代表：一等座、二等座、无座。目前只支持这三种选择
                 .run();
     }
